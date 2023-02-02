@@ -1,0 +1,47 @@
+// Variables
+@import '../../../../assets/sass/variables';
+
+.nav {
+  width: 203px;
+  height: calc(100vh - 80px);
+  padding-top: 87px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-light-black;
+  @include breakpoint(991px) {
+    display: none;
+  }
+  &__link {
+    height: 44px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding-left: 32px;
+    text-decoration: none;
+    transition: all 0.2s linear;
+    &__icon {
+      height: 18px;
+      width: 18px;
+      fill: $color-white-grey;
+    }
+    &__text {
+      margin-top: 3px;
+      color: $color-white-grey;
+    }
+    &:hover,
+    &--active {
+      background-color: $bg-grey;
+      .nav__link__icon {
+        fill: $primary;
+      }
+      .nav__link__text {
+        color: $color-white;
+      }
+    }
+  }
+}

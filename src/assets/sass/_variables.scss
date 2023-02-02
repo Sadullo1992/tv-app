@@ -1,0 +1,22 @@
+// Variables
+// Colors
+$primary: #d42230;
+$color-white: #e7e6e9;
+$color-white-grey: #949495;
+$color-grey: #505256;
+
+// Background colors
+$bg-black: #141619;
+$bg-light-black: #191b1f;
+$bg-grey: #25272a;
+$bg-search-box: #1e1f22;
+
+// Border color
+$border-grey: #3a3c40;
+
+// Mixin for media
+@mixin breakpoint($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}

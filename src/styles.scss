@@ -1,1 +1,117 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap');
+
+// variables
+@import 'assets/sass/_variables.scss';
+
+body {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  line-height: 1.26;
+  background-color: $bg-black;
+  color: $color-white;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// scrolbar
+*::-webkit-scrollbar-track {
+  background-color: $bg-black;
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(#535050, 0.5);
+  border: 2px solid $bg-black;
+}
+
+// Channel list
+.category {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  &__link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: $primary;
+    img {
+      height: 20px;
+      width: 20px;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.channel-list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 24px;
+  // width: 100%;
+  margin-right: -24px;
+  overflow-x: auto;
+  &::-webkit-scrollbar-track {
+    background-color: $bg-black;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(#535050, 0.5);
+    border: 10px solid $bg-black;
+  }
+  &__item {
+    cursor: pointer;
+    min-width: 170px;
+    &__banner {
+      margin-bottom: 8px;
+      height: 100px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $bg-light-black;
+      border-radius: 10px;
+      transition: background-color 0.2s linear;
+      @include breakpoint(575px) {
+        height: 120px;
+      }
+      img {
+        height: 82px;
+        width: 120px;
+        object-fit: contain;
+      }
+    }
+    &__name {
+      font-size: 16px;
+      text-align: center;
+      transition: color 0.2s linear;
+    }
+    &:hover &__banner {
+      background-color: $primary;
+    }
+  }
+}

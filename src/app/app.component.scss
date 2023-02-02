@@ -1,0 +1,12 @@
+@import '../assets/sass/variables';
+
+main {
+  margin-left: 203px;
+  overflow-x: hidden;
+  position: relative;
+  min-height: calc(100vh - 78px);
+  margin-bottom: 78px;
+  @include breakpoint(991px) {
+    margin-left: 0;
+  }
+}

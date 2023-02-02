@@ -1,0 +1,104 @@
+{
+  "channels": [
+    {
+      "id": "CNN.us",
+      "url": "https://tve-live-lln.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_3_1464000.m3u8"
+    },
+    {
+      "id": "LiveNOWfromFOX.us",
+      "url": "https://fox-foxnewsnow-samsungus.amagi.tv/playlist.m3u8"
+    },
+    {
+      "id": "BBCArabic.uk",
+      "url": "https://vs-hls-pushb-ww.live.cf.md.bbci.co.uk/x=3/i=urn:bbc:pips:service:bbc_arabic_tv/pc_hd_abr_v2.m3u8"
+    },
+    {
+      "id": "EuronewsRussian.fr",
+      "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=2576"
+    },
+    {
+      "id": "ClassCNBC.it",
+      "url": "https://streamcdnb10-859c1818ed614cc5b0047439470927b0.msvdn.net/live/S76890577/tDoFkZD3T1Lw/playlist.m3u8"
+    },
+    {
+      "id": "AllSports.br",
+      "url": "https://5cf4a2c2512a2.streamlock.net/dgrau/dgrau/playlist.m3u8"
+    },
+    {
+      "id": "EuronewsPortuguese.fr",
+      "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=2575"
+    },
+    {
+      "id": "SportenFrance.fr",
+      "url": "https://sp1564435593.mytvchain.info/live/sp1564435593_720/index.m3u8"
+    },
+    {
+      "id": "TraceSportStars.fr",
+      "url": "https://lightning-tracesport-samsungau.amagi.tv/playlist.m3u8"
+    },
+    {
+      "id": "MoreThanSportsTV.de",
+      "url": "https://mts1.iptv-playoutcenter.de/mts/mts-web/playlist.m3u8"
+    },
+    {
+      "id": "KetnetJunior.be",
+      "url": "https://content.uplynk.com/channel/e11a05356cc44198977436418ad71832.m3u8"
+    },
+    {
+      "id": "KidoodleTV.ca",
+      "url": "https://kidoodletv-kdtv-1-ca.samsung.wurl.tv/playlist.m3u8"
+    },
+    {
+      "id": "Balapan.kz",
+      "url": "https://balapantv-stream.qazcdn.com/balapantv/balapantv/playlist.m3u8"
+    },
+    {
+      "id": "Karusel.ru",
+      "url": "https://zabava-htlive.cdn.ngenix.net/hls/CH_KARUSEL/variant.m3u8"
+    },
+    {
+      "id": "O.ru",
+      "url": "https://sc.id-tv.kz/o.m3u8"
+    },
+    {
+      "id": "Tamyr.ru",
+      "url": "https://bsttv.bonus-tv.ru/cdn/tamyr/playlist.m3u8"
+    },
+    {
+      "id": "AtfalMawahebTV.sa",
+      "url": "https://5d658d7e9f562.streamlock.net/atfal1.com/atfal2/playlist.m3u8"
+    },
+    {
+      "id": "EBSKids.kr",
+      "url": "http://ebsonair.ebs.co.kr/ebsufamilypc/familypc1m/playlist.m3u8"
+    },
+    {
+      "id": "TRTCocuk.tr",
+      "url": "https://tv-trtcocuk.live.trt.com.tr/master.m3u8"
+    },
+    {
+      "id": "MoonbugKids.uk",
+      "url": "https://moonbug-rokuus.amagi.tv/playlist.m3u8"
+    },
+    {
+      "id": "Teletubbies.uk",
+      "url": "https://8f720e1353ce43b8babcd780fe178755.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/Samsung-gb_WildBrainPresentsTeletubbies/playlist.m3u8"
+    },
+    {
+      "id": "3ABNKids.us",
+      "url": "https://3abn-live.akamaized.net/hls/live/2010550/Kids/master.m3u8"
+    },
+    {
+      "id": "AghapyKids.us",
+      "url": "https://5b622f07944df.streamlock.net/aghapykids.tv/aghapykids2/playlist.m3u8"
+    },
+    {
+      "id": "BloombergTV.us",
+      "url": "https://dai.google.com/linear/hls/event/NiumF4GTSGe-pXM-iMsP0A/master.m3u8"
+    },
+    {
+      "id": "LatinoKids.uy",
+      "url": "https://6362ca6f1fc28.streamlock.net/8062/8062/playlist.m3u8"
+    }
+  ]
+}
