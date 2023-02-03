@@ -1,7 +1,7 @@
 <div class="channel-list">
-  <app-channel-list-item></app-channel-list-item>
-  <app-channel-list-item></app-channel-list-item>
-  <app-channel-list-item></app-channel-list-item>
-  <app-channel-list-item></app-channel-list-item>
-  <app-channel-list-item></app-channel-list-item>
+  <app-channel-list-item
+    *ngFor="let item of channels"
+    [item]="item"
+    (click)="goToChannelPage(item.id)"
+  ></app-channel-list-item>
 </div>

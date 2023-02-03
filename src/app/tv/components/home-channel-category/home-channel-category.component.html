@@ -1,0 +1,10 @@
+<div class="home__channel__category">
+  <div class="category__header">
+    <h3 class="category__title">{{ category | titlecase }}</h3>
+    <a [routerLink]="[category]" class="category__link">
+      <span>See more</span>
+      <img src="../../../assets/icons/arrow-right.svg" alt="arrow-right" />
+    </a>
+  </div>
+  <app-channel-list [channels]="channels | slice : 0 : 7"></app-channel-list>
+</div>

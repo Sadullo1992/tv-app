@@ -4,7 +4,7 @@ import { ChannelPageComponent } from './pages/channel-page/channel-page.componen
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: ChannelPageComponent,
   },
 ];

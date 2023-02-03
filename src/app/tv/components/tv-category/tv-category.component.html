@@ -1,6 +1,6 @@
 <section class="tv-category">
   <div class="category__header">
-    <h3 class="category__title">News</h3>
+    <h3 class="category__title">{{ category | titlecase }}</h3>
   </div>
-  <app-channel-list></app-channel-list>
+  <app-channel-list [channels]="channels | sortByCategory : category"></app-channel-list>
 </section>
