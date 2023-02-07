@@ -1,14 +1,22 @@
 <section class="channel">
   <div class="channel__navigation">
-    <a href="">Home</a>
+    <a [routerLink]="['/']">Home</a>
     <img src="../../../assets/icons/arrow-right-grey.svg" alt="arrow icon" />
-    <a href="">Channel name</a>
+    <a>{{ channel?.name }}</a>
   </div>
-  <h3 class="channel__title">Sevimli Tv</h3>
+  <h3 class="channel__title">{{ channel?.name }}</h3>
   <div class="channel__container">
-    <video
-      src="https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f3/Big_Buck_Bunny_first_23_seconds_1080p.ogv/Big_Buck_Bunny_first_23_seconds_1080p.ogv.720p.vp9.webm"
-    ></video>
+    <!-- <app-html-video-player [streamUrl]="streamUrl"></app-html-video-player> -->
+    <app-vjs-player
+      [options]="{
+        sources: [
+          {
+            src: '',
+            type: 'application/x-mpegURL'
+          }
+        ]
+      }"
+    ></app-vjs-player>
     <div class="channel__sort-block">
       <app-search></app-search>
       <app-sort></app-sort>

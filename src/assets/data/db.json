@@ -1,10 +1,6 @@
 {
   "channels": [
     {
-      "id": "CNN.us",
-      "url": "https://tve-live-lln.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_3_1464000.m3u8"
-    },
-    {
       "id": "LiveNOWfromFOX.us",
       "url": "https://fox-foxnewsnow-samsungus.amagi.tv/playlist.m3u8"
     },

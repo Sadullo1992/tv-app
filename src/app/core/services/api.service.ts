@@ -39,4 +39,12 @@ export class ApiService {
         )
       );
   }
+
+  getChannel(id: string): Observable<Channel | undefined> {
+    return this.getChannels().pipe(map((channels) => channels.find((item) => item.id === id)));
+  }
+
+  getChannelStream(id: string): Observable<Stream | undefined> {
+    return this.getStreams().pipe(map((streams) => streams.find((item) => item.channel === id)));
+  }
 }
