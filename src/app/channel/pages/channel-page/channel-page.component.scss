@@ -32,6 +32,14 @@
     }
   }
   &__sort-block {
-    padding-top: 1px;
+    padding-top: 65px;
+    position: relative;
+  }
+  &__search-container {
+    position: absolute;
+    width: 100%;
+    top: 1px;
+    left: 0;
+    z-index: 4;
   }
 }

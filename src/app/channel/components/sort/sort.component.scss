@@ -113,7 +113,7 @@
   }
   &__result {
     width: 100%;
-    max-height: 280px;
+    max-height: calc(100vh - 380px);
     border-radius: 10px;
     background-color: $bg-light-black;
     padding: 20px;

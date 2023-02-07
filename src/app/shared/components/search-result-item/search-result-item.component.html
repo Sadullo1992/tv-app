@@ -1,0 +1,7 @@
+<div class="search__result__item">
+  <img src="{{ item.logo }}" alt="channel logo" />
+  <div class="search__result__item__content">
+    <h4>{{ item.name }}</h4>
+    <p>{{ item.country }} / {{ item.categories.join(' / ') | titlecase }}</p>
+  </div>
+</div>

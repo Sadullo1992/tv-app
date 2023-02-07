@@ -26,13 +26,13 @@ export class ChannelPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getChannelIdFromRoute();
-    this.getChannel();
-    this.getChannelStream();
   }
 
   private getChannelIdFromRoute(): void {
     this.subscription1 = this.route.params.subscribe((params) => {
       this.channelId = params['id'];
+      this.getChannel();
+      this.getChannelStream();
     });
     this.subscriptions.push(this.subscription1);
   }

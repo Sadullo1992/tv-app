@@ -8,62 +8,35 @@
   </symbol>
 </svg>
 
-<div class="search">
+<div class="search" [class.search--typed]="isSearch">
   <div class="search__box">
-    <input type="text" placeholder="Search channels" />
+    <input
+      ngModel
+      [value]="query"
+      (focusout)="onFocusOut()"
+      (ngModelChange)="onSearch($event)"
+      name="inputValue"
+      type="text"
+      placeholder="Search channels"
+    />
     <svg class="search__icon">
       <use xlink:href="#search"></use>
     </svg>
   </div>
   <div class="search__result">
-    <div class="search__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="search__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="search__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="search__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="search__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="search__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="search__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="search__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="search__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="search__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="search__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="search__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="search__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="search__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
+    <ng-container *ngIf="channels | searchChannel : query as channels">
+      <ng-container *ngIf="channels.length > 0; else elseTemplate">
+        <app-search-result-item
+          *ngFor="let item of channels"
+          [item]="item"
+          (click)="goToChannelPage(item.id)"
+        ></app-search-result-item>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <div class="not-found">
+          <p>Sorry, we couldn't find any channel...</p>
+        </div>
+      </ng-template>
+    </ng-container>
   </div>
 </div>
