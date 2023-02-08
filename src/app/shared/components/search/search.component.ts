@@ -29,14 +29,9 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.isSearch = this.query ? true : false;
   }
 
-  onFocusOut(): void {
-    setTimeout(() => {
-      this.isSearch = false;
-    }, 500);
-  }
-
   goToChannelPage(channelId: string) {
     this.router.navigate(['channel', channelId]);
+    this.isSearch = false;
   }
 
   private getAllChannels(): void {

@@ -8,12 +8,16 @@
   </symbol>
 </svg>
 
-<div class="search" [class.search--typed]="isSearch">
+<div
+  class="search"
+  appClickOutside
+  (clickOutside)="isSearch = false"
+  [class.search--typed]="isSearch"
+>
   <div class="search__box">
     <input
       ngModel
       [value]="query"
-      (focusout)="onFocusOut()"
       (ngModelChange)="onSearch($event)"
       name="inputValue"
       type="text"

@@ -1,0 +1,7 @@
+<div class="sort__result">
+  <app-sort-result-item
+    *ngFor="let item of channels"
+    [item]="item"
+    (click)="goToChannelPage(item.id)"
+  ></app-sort-result-item>
+</div>

@@ -1,98 +1,18 @@
 <section class="sort">
   <div class="sort__by">
-    <div class="dropdown">
-      <button>
-        <span>All country</span>
-        <img src="../../../assets/icons/arrow-right-grey.svg" alt="arrow" />
-      </button>
-      <div class="dropdown__search">
-        <input type="text" placeholder="Search country" />
-        <img src="../../../assets/icons/search.svg" alt="search icon" />
-      </div>
-      <div class="select">
-        <div class="select__item" data-value="uz">Uzbekistan</div>
-        <div class="select__item" data-value="uz">Uzbekistan</div>
-        <div class="select__item" data-value="uz">Uzbekistan</div>
-        <div class="select__item" data-value="uz">Uzbekistan</div>
-        <div class="select__item" data-value="uz">Uzbekistan</div>
-        <div class="select__item" data-value="uz">Uzbekistan</div>
-        <div class="select__item" data-value="uz">Uzbekistan</div>
-        <div class="select__item" data-value="uz">Uzbekistan</div>
-      </div>
-    </div>
-    <div class="dropdown dropdown--active">
-      <button>
-        <span>All category</span>
-        <img src="../../../assets/icons/arrow-right-grey.svg" alt="arrow" />
-      </button>
-      <div class="select">
-        <div class="select__item" data-value="music">Music</div>
-        <div class="select__item" data-value="kids">Kids</div>
-        <div class="select__item" data-value="music">Music</div>
-        <div class="select__item" data-value="kids">Kids</div>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button>
-        <span>Sort by</span>
-        <img src="../../../assets/icons/arrow-right-grey.svg" alt="arrow" />
-      </button>
-      <div class="select">
-        <div class="select__item" data-value="name">Name</div>
-        <div class="select__item" data-value="popular">Popular</div>
-        <div class="select__item" data-value="newest">Newest</div>
-      </div>
-    </div>
+    <app-dropdown
+      [isSearchFeature]="true"
+      [dropdownCategories]="dropdownCountries"
+      (sort)="onSortByCountry($event)"
+    ></app-dropdown>
+    <app-dropdown
+      [isSearchFeature]="false"
+      [dropdownCategories]="dropdownCategories"
+      (sort)="onSortByCategory($event)"
+    ></app-dropdown>
+    <app-dropdown [isSearchFeature]="false" [dropdownCategories]="dropdownSorts"></app-dropdown>
   </div>
-  <div class="sort__result">
-    <div class="sort__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="sort__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="sort__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="sort__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="sort__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="sort__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="sort__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="sort__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="sort__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="sort__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="sort__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="sort__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-    <div class="sort__result__item">
-      <img src="../../../assets/images/channel-logo.png" alt="channel logo" />
-      <div class="sort__result__item__content">
-        <h4>Sevimli TV</h4>
-        <p>Uzbekistan / Oilaviy / Kids</p>
-      </div>
-    </div>
-  </div>
+  <app-sort-result
+    [channels]="channels | sortByCountry : queryByCountry | sortByCategory : queryByCategory"
+  ></app-sort-result>
 </section>

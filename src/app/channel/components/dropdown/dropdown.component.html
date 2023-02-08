@@ -1,0 +1,29 @@
+<div
+  class="dropdown"
+  appClickOutside
+  (clickOutside)="isDropped = false"
+  [class.dropdown--active]="isDropped"
+>
+  <button (click)="toggleDropdown()">
+    <span>{{ activeSortType }}</span>
+    <img src="../../../assets/icons/arrow-right-grey.svg" alt="arrow" />
+  </button>
+  <div *ngIf="isSearchFeature" class="dropdown__search">
+    <input
+      ngModel
+      [value]="query"
+      (ngModelChange)="onSearch($event)"
+      type="text"
+      placeholder="Search country"
+    />
+    <img src="../../../assets/icons/search.svg" alt="search icon" />
+  </div>
+  <div class="select">
+    <ng-container *ngIf="isSearchFeature"> </ng-container>
+    <app-dropdown-select-item
+      *ngFor="let item of dropdownCategories | searchCountry : query : isSearchFeature"
+      [item]="item"
+      (click)="selectSortType(item)"
+    ></app-dropdown-select-item>
+  </div>
+</div>
