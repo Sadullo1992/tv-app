@@ -1,0 +1,40 @@
+.tv-category {
+  padding: 70px 24px;
+  .category__header {
+    margin-bottom: 32px;
+  }
+  .channel-list {
+    row-gap: 32px;
+    overflow: visible;
+    margin-right: 0;
+    @include breakpoint(1919px) {
+      grid-template-columns: repeat(7, 1fr);
+    }
+    @include breakpoint(1599px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @include breakpoint(1400px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    @include breakpoint(1200px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include breakpoint(799px) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 18px;
+    }
+    @include breakpoint(575px) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 14px;
+    }
+    @include breakpoint(359px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  @include breakpoint(575px) {
+    padding: 60px 10px;
+  }
+  @include breakpoint(359px) {
+    padding: 60px 24px;
+  }
+}

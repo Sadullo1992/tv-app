@@ -1,0 +1,50 @@
+.channel-list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 24px;
+  // width: 100%;
+  margin-right: -24px;
+  overflow-x: auto;
+  &::-webkit-scrollbar-track {
+    background-color: $bg-black;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(#535050, 0.5);
+    border: 10px solid $bg-black;
+  }
+  &__item {
+    cursor: pointer;
+    min-width: 170px;
+    &__banner {
+      margin-bottom: 8px;
+      height: 100px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $bg-light-black;
+      border-radius: 10px;
+      transition: background-color 0.2s linear;
+      @include breakpoint(575px) {
+        height: 120px;
+      }
+      img {
+        height: 82px;
+        width: 120px;
+        object-fit: contain;
+      }
+    }
+    &__name {
+      font-size: 16px;
+      text-align: center;
+      transition: color 0.2s linear;
+    }
+    &:hover &__banner {
+      background-color: $primary;
+    }
+  }
+}
