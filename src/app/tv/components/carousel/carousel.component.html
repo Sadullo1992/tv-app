@@ -1,30 +1,14 @@
 <section class="carousel">
-  <div class="carousel__item">
-    <img
-      src="../../../assets/images/carousel-img-1.png"
-      alt="carousel-img-1"
-      class="carousel__item__photo"
-    />
-    <div class="carousel__item__overlay">
-      <h2>
-        The newest movies and cartoons <br />
-        are on our site!
-      </h2>
-    </div>
-  </div>
-  <!-- <div class="carousel__item">
-      <img
-        src="../../../assets/images/carousel-img-2.png"
-        alt="carousel-img-2"
-        class="carousel__item__photo"
-      />
-      <div class="carousel__item__overlay">
-        <h2>The newest movies and cartoons are on our site!</h2>
-      </div>
-    </div> -->
+  <app-carousel-item
+    [item]="slides[currentIndex]"
+    [isEven]="currentIndex % 2 !== 0"
+  ></app-carousel-item>
   <div class="carousel__nav">
-    <span class="carousel__nav__item"></span>
-    <span class="carousel__nav__item carousel__nav__item--active"></span>
-    <span class="carousel__nav__item"></span>
+    <span
+      *ngFor="let item of slides; index as i"
+      (click)="setActiveSlide(i)"
+      class="carousel__nav__item"
+      [class.carousel__nav__item--active]="i === currentIndex"
+    ></span>
   </div>
 </section>

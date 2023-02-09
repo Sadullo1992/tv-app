@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ChannelListComponent } from './components/channel-list/channel-list.component';
 import { ChannelListItemComponent } from './components/channel-list-item/channel-list-item.component';
 import { HomeChannelCategoryComponent } from './components/home-channel-category/home-channel-category.component';
+import { CarouselItemComponent } from './components/carousel/carousel-item/carousel-item.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HomeChannelCategoryComponent } from './components/home-channel-category
     ChannelListComponent,
     ChannelListItemComponent,
     HomeChannelCategoryComponent,
+    CarouselItemComponent,
   ],
   imports: [CommonModule, TvRoutingModule, SharedModule],
 })
