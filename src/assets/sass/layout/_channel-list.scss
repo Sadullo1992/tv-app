@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   column-gap: 24px;
-  // width: 100%;
   margin-right: -24px;
   overflow-x: auto;
   &::-webkit-scrollbar-track {
@@ -21,20 +20,18 @@
     min-width: 170px;
     &__banner {
       margin-bottom: 8px;
-      height: 100px;
+      padding: 15px;
       width: 100%;
+      aspect-ratio: auto 16 / 9;
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: $bg-light-black;
       border-radius: 10px;
       transition: background-color 0.2s linear;
-      @include breakpoint(575px) {
-        height: 120px;
-      }
       img {
-        height: 82px;
-        width: 120px;
+        width: 70%;
+        aspect-ratio: 120 / 82;
         object-fit: contain;
       }
     }
@@ -42,6 +39,9 @@
       font-size: 16px;
       text-align: center;
       transition: color 0.2s linear;
+      @include breakpoint(991px) {
+        font-size: 14px;
+      }
     }
     &:hover &__banner {
       background-color: $primary;

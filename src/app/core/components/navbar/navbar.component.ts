@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ShareMenuStateService } from '../../services/share-menu-state.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,24 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  id: string | null = null;
+  innerWidth = 0;
 
-  constructor(private route: ActivatedRoute) {}
+  categories = ['news', 'sports', 'music', 'kids', 'movies', 'series'];
 
-  ngOnInit(): void {}
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.innerWidth = window.innerWidth;
+  }
+
+  constructor(private shareMenuStateService: ShareMenuStateService) {}
+
+  ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+  }
+
+  closeNavbar() {
+    if (this.innerWidth < 991) {
+      this.shareMenuStateService.shareData(false);
+    }
+  }
 }

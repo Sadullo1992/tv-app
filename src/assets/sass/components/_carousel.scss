@@ -11,7 +11,7 @@
     &__photo {
       max-width: 1300px;
       width: 100%;
-      height: 280px;
+      height: 100%;
       object-fit: cover;
     }
     &__overlay {
@@ -25,12 +25,28 @@
       align-items: center;
       justify-content: flex-start;
       padding: 30px;
+      @include breakpoint(767px) {
+        padding: 15px;
+      }
+      @include breakpoint(425px) {
+        width: 100%;
+        background-image: linear-gradient(to right, $primary 10%, transparent);
+      }
       h2 {
         max-width: 610px;
         font-size: 36px;
         line-height: 1.26;
         color: $color-white;
         font-weight: 600;
+        @include breakpoint(1199px) {
+          font-size: 32px;
+        }
+        @include breakpoint(767px) {
+          font-size: 28px;
+        }
+        @include breakpoint(575px) {
+          font-size: 24px;
+        }
       }
     }
     &--even {
@@ -40,6 +56,9 @@
         right: 0;
         background-image: linear-gradient(to left, $primary 25%, transparent);
         justify-content: flex-end;
+        @include breakpoint(425px) {
+          background-image: linear-gradient(to left, $primary 10%, transparent);
+        }
         h2 {
           text-align: right;
         }
@@ -63,6 +82,27 @@
       &--active {
         background-color: #fff;
       }
+    }
+  }
+}
+
+@media (min-width: 1601px) {
+  .carousel {
+    height: 300px;
+    &__item__photo {
+      max-width: 1600px;
+    }
+    &__item__overlay {
+      padding: 60px;
+    }
+  }
+}
+
+@media (min-width: 2000px) {
+  .carousel {
+    height: 420px;
+    &__item__photo {
+      max-width: 2000px;
     }
   }
 }

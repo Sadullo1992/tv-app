@@ -18,11 +18,9 @@ body {
 *::-webkit-scrollbar-track {
   background-color: $bg-black;
 }
-
 *::-webkit-scrollbar {
   width: 7px;
 }
-
 *::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: rgba(#535050, 0.5);
@@ -31,12 +29,18 @@ body {
 
 // Main
 main {
-  margin-left: 203px;
+  margin-left: 270px;
   overflow-x: hidden;
   position: relative;
+  max-width: 2600px;
   min-height: calc(100vh - 78px);
+  @include breakpoint(1599px) {
+    margin-left: 203px;
+  }
   @include breakpoint(991px) {
     margin-left: 0;
+    margin-top: 64px;
+    min-height: calc(100vh - 64px);
   }
 }
 
@@ -50,6 +54,62 @@ main {
     top: 254px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 4;
+    @include breakpoint(1199px) {
+      width: 480px;
+    }
+    @include breakpoint(991px) {
+      display: none;
+    }
+  }
+}
+
+// dark layer
+.dark-layer {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  z-index: -2;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s linear;
+}
+
+@media (min-width: 1601px) {
+  .tv {
+    .search__container {
+      top: 274px;
+    }
+  }
+}
+
+@media (min-width: 2000px) {
+  .tv {
+    .search__container {
+      top: 394px;
+      width: 695px;
+    }
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1599px) {
+  body[data-menu] {
+    main {
+      margin-left: 60px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .dark-layer {
+    display: block;
+  }
+  body[data-menu] {
+    .dark-layer {
+      opacity: 1;
+      z-index: 4;
+    }
   }
 }

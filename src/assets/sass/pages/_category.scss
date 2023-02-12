@@ -7,7 +7,10 @@
     row-gap: 32px;
     overflow: visible;
     margin-right: 0;
-    @include breakpoint(1919px) {
+    @include breakpointMinWidth(2000px) {
+      grid-template-columns: repeat(8, 1fr);
+    }
+    @include breakpoint(1999px) {
       grid-template-columns: repeat(7, 1fr);
     }
     @include breakpoint(1599px) {
@@ -27,14 +30,15 @@
       grid-template-columns: repeat(2, 1fr);
       column-gap: 14px;
     }
-    @include breakpoint(359px) {
+    @include breakpoint(399px) {
       grid-template-columns: repeat(1, 1fr);
     }
+    &__item {
+      max-width: 250px;
+      margin: 0 auto;
+    }
   }
-  @include breakpoint(575px) {
-    padding: 60px 10px;
-  }
-  @include breakpoint(359px) {
-    padding: 60px 24px;
+  @include breakpoint(991px) {
+    padding: 40px 15px;
   }
 }

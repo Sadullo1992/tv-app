@@ -1,11 +1,5 @@
 @import '~video.js/dist/video-js.css';
 
-.video-js {
-  position: relative !important;
-  width: 767px !important;
-  height: 426px;
-}
-
 .video-js .vjs-big-play-button {
   border-radius: 50%;
   width: 2em;
@@ -19,9 +13,6 @@
   transform: translate(-50%, -50%);
   background-color: #d42230;
 }
-/* .video-js .vjs-big-play-button:hover {
-  background-color: rgba(212, 34, 48, 0.5);
-} */
 .video-js:hover .vjs-big-play-button {
   background-color: rgba(212, 34, 48, 0.5);
 }

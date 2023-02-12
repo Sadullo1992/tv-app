@@ -1,6 +1,6 @@
-header {
-  height: 80px;
-  width: 203px;
+.header {
+  height: 108px;
+  width: 270px;
   display: flex;
   align-items: center;
   column-gap: 2px;
@@ -9,9 +9,106 @@ header {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 2;
-  .menu,
+  z-index: 3;
+  button {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  button,
+  .menu {
+    height: 44px;
+    @include breakpoint(991px) {
+      height: 32px;
+    }
+  }
+
   .logo {
     height: 44px;
+    @include breakpoint(991px) {
+      height: 29px;
+    }
+  }
+  &__search {
+    position: relative;
+    .btn--search {
+      height: 20px;
+      display: none;
+      .search__icon {
+        height: 20px;
+        width: 20px;
+        fill: $color-white;
+      }
+      @include breakpoint(991px) {
+        display: block;
+      }
+    }
+    &__dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      bottom: -20px;
+      right: 0;
+      width: 250px;
+      animation-duration: 0.3s;
+      animation-name: SearchDropdownSlide;
+      transform: translateY(10px);
+      .search {
+        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+  @include breakpoint(1599px) {
+    height: 80px;
+    width: 203px;
+  }
+  @include breakpoint(991px) {
+    width: 100%;
+    justify-content: space-between;
+    box-shadow: rgb(17, 17, 17) 0 0 15px;
+    height: 64px;
+  }
+  @include breakpoint(767px) {
+    padding: 0 15px;
+  }
+}
+
+@keyframes SearchDropdownSlide {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1599px) {
+  body[data-menu] {
+    .header {
+      width: 60px;
+      justify-content: center;
+      padding: 0;
+      .logo {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .header {
+    &__search {
+      &--show {
+        .header__search__dropdown {
+          display: block;
+        }
+        .btn--search {
+          .search__icon {
+            fill: $color-white-grey;
+          }
+        }
+      }
+    }
   }
 }

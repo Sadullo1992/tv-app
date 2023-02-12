@@ -42,6 +42,7 @@ export class VjsPlayerComponent implements OnInit, OnChanges, OnDestroy {
     this.player.hlsQualitySelector({
       displayCurrentQuality: true,
     });
+    this.player.fluid(true);
   }
 
   /**

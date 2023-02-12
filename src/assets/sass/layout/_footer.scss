@@ -7,4 +7,7 @@ footer {
     font-weight: 300;
     text-align: center;
   }
+  @include breakpoint(991px) {
+    height: 64px;
+  }
 }

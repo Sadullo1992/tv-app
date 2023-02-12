@@ -1,4 +1,35 @@
-<header>
-  <img class="menu" src="../../../assets/icons/menu.svg" alt="menu" />
-  <img src="../../../assets/images/logo.svg" alt="logo" />
+<header class="header">
+  <button (click)="toggleMenu()">
+    <img class="menu" src="../../../assets/icons/menu.svg" alt="menu" />
+  </button>
+  <img class="logo" src="../../../assets/images/logo.svg" alt="logo" />
+  <div
+    class="header__search"
+    appClickOutside
+    (clickOutside)="isSearching = false"
+    [class.header__search--show]="isSearching"
+  >
+    <button (click)="toggleSearch()" class="btn--search">
+      <svg class="search__icon">
+        <use xlink:href="#search"></use>
+      </svg>
+    </button>
+    <div class="header__search__dropdown">
+      <app-search></app-search>
+    </div>
+  </div>
 </header>
+
+<!-- dark-layer -->
+<div (click)="closeNavbar()" class="dark-layer"></div>
+
+<!-- svg search icon -->
+<svg style="display: none">
+  <symbol id="search" viewBox="0 0 20 20">
+    <g>
+      <path
+        d="M15.0258 13.8475L18.595 17.4159L17.4158 18.595L13.8475 15.0259C12.5197 16.0902 10.8683 16.6691 9.16663 16.6667C5.02663 16.6667 1.66663 13.3067 1.66663 9.16669C1.66663 5.02669 5.02663 1.66669 9.16663 1.66669C13.3066 1.66669 16.6666 5.02669 16.6666 9.16669C16.669 10.8684 16.0901 12.5198 15.0258 13.8475ZM13.3541 13.2292C14.4117 12.1416 15.0023 10.6837 15 9.16669C15 5.94335 12.3891 3.33335 9.16663 3.33335C5.94329 3.33335 3.33329 5.94335 3.33329 9.16669C3.33329 12.3892 5.94329 15 9.16663 15C10.6837 15.0024 12.1415 14.4118 13.2291 13.3542L13.3541 13.2292Z"
+      />
+    </g>
+  </symbol>
+</svg>

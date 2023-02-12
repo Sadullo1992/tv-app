@@ -33,12 +33,16 @@
   &__result {
     display: none;
     width: 100%;
-    max-height: calc(100vh - 350px);
+    max-height: 300px;
+    background-color: $bg-search-box;
     border-radius: 0 0 6px 6px;
     border: 1px solid #3a3c40;
     border-top: 0;
     overflow-y: auto;
     overflow-x: hidden;
+    @include breakpointMinWidth(1600px) {
+      max-height: 500px;
+    }
     &__item {
       height: 70px;
       width: 100%;
@@ -103,5 +107,41 @@
     color: $primary;
     font-size: 14px;
     line-height: 18px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .search__container {
+    .search {
+      &__box {
+        height: 72px;
+        input {
+          font-size: 20px;
+        }
+        .search__icon {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .search {
+    &__box {
+      height: 44px;
+    }
+    .not-found,
+    &__result__item {
+      height: 60px;
+      padding: 0 10px;
+    }
+  }
+}
+
+@media (max-height: 400px) {
+  .search__result {
+    max-height: 250px;
   }
 }
