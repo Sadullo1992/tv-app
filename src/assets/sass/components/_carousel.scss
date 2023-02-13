@@ -2,6 +2,11 @@
 .carousel {
   height: 280px;
   position: relative;
+  @include breakpoint(575px) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto 16 / 9;
+  }
   &__item {
     height: 100%;
     width: 100%;
@@ -29,8 +34,8 @@
         padding: 15px;
       }
       @include breakpoint(425px) {
-        width: 100%;
-        background-image: linear-gradient(to right, $primary 10%, transparent);
+        width: 80%;
+        background-image: linear-gradient(to right, $primary 15%, transparent);
       }
       h2 {
         max-width: 610px;
@@ -47,6 +52,9 @@
         @include breakpoint(575px) {
           font-size: 24px;
         }
+        @include breakpoint(425px) {
+          font-size: 20px;
+        }
       }
     }
     &--even {
@@ -57,7 +65,7 @@
         background-image: linear-gradient(to left, $primary 25%, transparent);
         justify-content: flex-end;
         @include breakpoint(425px) {
-          background-image: linear-gradient(to left, $primary 10%, transparent);
+          background-image: linear-gradient(to left, $primary 15%, transparent);
         }
         h2 {
           text-align: right;
