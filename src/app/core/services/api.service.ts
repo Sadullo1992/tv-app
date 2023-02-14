@@ -12,19 +12,19 @@ import { Stream } from '../models/stream.model';
 })
 export class ApiService {
   baseChannels: AvailableChannel[] = data.channels;
+  customChannels: Channel[] = data.customChannels;
 
   constructor(private httpClient: HttpClient) {}
 
   getChannels(): Observable<Channel[]> {
-    return this.httpClient
-      .get<Channel[]>('https://iptv-org.github.io/api/channels.json')
-      .pipe(
-        map((channels) =>
-          channels.filter((item) =>
-            this.baseChannels.some((baseChannel) => baseChannel.id === item.id)
-          )
+    return this.httpClient.get<Channel[]>('https://iptv-org.github.io/api/channels.json').pipe(
+      map((channels) =>
+        channels.filter((item) =>
+          this.baseChannels.some((baseChannel) => baseChannel.id === item.id)
         )
-      );
+      ),
+      map((channels) => [...this.customChannels, ...channels])
+    );
   }
   getStreams(): Observable<Stream[]> {
     return this.httpClient

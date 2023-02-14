@@ -1,5 +1,76 @@
 {
+  "customChannels": [
+    {
+      "id": "BizTV.uz",
+      "name": "Biz TV",
+      "alt_names": ["Biz TV UZ"],
+      "network": "",
+      "owners": ["biz tv"],
+      "country": "UZ",
+      "subdivision": "",
+      "city": "",
+      "broadcast_area": [""],
+      "languages": ["uz"],
+      "categories": ["news", "sports", "kids"],
+      "is_nsfw": false,
+      "launched": "",
+      "closed": "",
+      "replaced_by": "",
+      "website": "https://biztv.uz/",
+      "logo": "http://tv.team/images/chIcons/1797.png"
+    },
+    {
+      "id": "BizCinema.uz",
+      "name": "Biz Cinema",
+      "alt_names": ["Biz Cinema UZ"],
+      "network": "",
+      "owners": ["biz tv"],
+      "country": "UZ",
+      "subdivision": "",
+      "city": "",
+      "broadcast_area": [""],
+      "languages": ["uz"],
+      "categories": ["movies"],
+      "is_nsfw": false,
+      "launched": "",
+      "closed": "",
+      "replaced_by": "",
+      "website": "https://biztv.uz/",
+      "logo": "http://tv.team/images/chIcons/1798.png"
+    },
+    {
+      "id": "BizMusic.uz",
+      "name": "Biz Music",
+      "alt_names": ["Biz Music UZ"],
+      "network": "",
+      "owners": ["biz tv"],
+      "country": "UZ",
+      "subdivision": "",
+      "city": "",
+      "broadcast_area": [""],
+      "languages": ["uz"],
+      "categories": ["music"],
+      "is_nsfw": false,
+      "launched": "",
+      "closed": "",
+      "replaced_by": "",
+      "website": "https://biztv.uz/",
+      "logo": "http://tv.team/images/chIcons/1799.png"
+    }
+  ],
   "channels": [
+    {
+      "id": "BizTV.uz",
+      "url": "https://st.biztv.uz/hls/stream_mid/index.m3u8"
+    },
+    {
+      "id": "BizCinema.uz",
+      "url": "https://st.biztv.uz/hls/c_low/index.m3u8"
+    },
+    {
+      "id": "BizMusic.uz",
+      "url": "https://st.biztv.uz/hls/m_mid/index.m3u8"
+    },
     {
       "id": "LiveNOWfromFOX.us",
       "url": "https://fox-foxnewsnow-samsungus.amagi.tv/playlist.m3u8"
