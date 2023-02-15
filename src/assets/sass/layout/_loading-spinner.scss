@@ -1,0 +1,56 @@
+.loading-spinner {
+  padding-top: 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: $color-white;
+  z-index: 10;
+  &__inner {
+    height: 95px;
+    position: relative;
+    overflow: hidden;
+    img {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+    }
+    span {
+      position: absolute;
+      bottom: 0;
+      left: -20px;
+      height: 3px;
+      width: 90px;
+      border-radius: 6px;
+      background-color: $primary;
+      animation-name: SpinnerSlide;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      z-index: 11;
+    }
+    div {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $color-white-grey;
+      border-radius: 6px;
+    }
+  }
+}
+
+@keyframes SpinnerSlide {
+  0% {
+    left: -70px;
+  }
+  50% {
+    left: 90%;
+  }
+  100% {
+    left: -70px;
+  }
+}

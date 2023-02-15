@@ -27,8 +27,8 @@
       <use xlink:href="#search"></use>
     </svg>
   </div>
-  <div class="search__result">
-    <ng-container *ngIf="channels | searchChannel : query as channels">
+  <div class="search__result" *ngIf="channels$ | async as allChannels">
+    <ng-container *ngIf="allChannels | searchChannel : query as channels">
       <ng-container *ngIf="channels.length > 0; else elseTemplate">
         <app-search-result-item
           *ngFor="let item of channels"

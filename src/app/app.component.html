@@ -4,3 +4,6 @@
   <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>
+<ng-container *ngIf="status$ | async as status">
+  <app-loading-spinner *ngIf="status === 'loading'"></app-loading-spinner>
+</ng-container>

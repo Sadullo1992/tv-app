@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Channel } from 'src/app/core/models/channel.model';
-import { ApiService } from 'src/app/core/services/api.service';
+import { Store } from '@ngrx/store';
+import * as AppSelects from '../../../redux/selectors/app.selectors';
 
 import data from '../../../../assets/data/db.json';
 
@@ -16,39 +17,33 @@ export class ChannelPageComponent implements OnInit, OnDestroy {
 
   streamUrl = '';
 
-  channel: Channel | undefined = undefined;
+  channel$!: Observable<Channel | undefined>;
 
-  private subscription1!: Subscription;
-  private subscription2!: Subscription;
-  subscriptions: Subscription[] = [];
+  private subscription!: Subscription;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  constructor(private route: ActivatedRoute, private store: Store) {}
 
   ngOnInit(): void {
     this.getChannelIdFromRoute();
   }
 
   private getChannelIdFromRoute(): void {
-    this.subscription1 = this.route.params.subscribe((params) => {
+    this.subscription = this.route.params.subscribe((params) => {
       this.channelId = params['id'];
-      this.getChannel();
+      this.getChannel(this.channelId);
       this.getChannelStream();
     });
-    this.subscriptions.push(this.subscription1);
   }
 
-  private getChannel(): void {
-    this.subscription2 = this.apiService.getChannels().subscribe((channels) => {
-      this.channel = channels.find((item) => item.id === this.channelId);
-    });
-    this.subscriptions.push(this.subscription2);
+  private getChannel(id: string): void {
+    this.channel$ = this.store.select(AppSelects.selectChannel(id));
   }
 
   private getChannelStream(): void {
-    this.streamUrl = data.channels.find((item) => item.id === this.channelId)?.url as string;
+    this.streamUrl = data.channels.find((item) => item.id === this.channelId)!.url;
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+    this.subscription.unsubscribe();
   }
 }

@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 import { Channel } from 'src/app/core/models/channel.model';
 import { Country, DropdownCategory } from 'src/app/core/models/dropdownData.model';
-import { ApiService } from 'src/app/core/services/api.service';
+import * as AppSelects from '../../../redux/selectors/app.selectors';
 
 import counties from '../../../../assets/data/countries.json';
 
@@ -13,8 +14,6 @@ import counties from '../../../../assets/data/countries.json';
   styleUrls: ['./sort.component.scss'],
 })
 export class SortComponent implements OnInit, OnDestroy {
-  channels: Channel[] = [];
-
   availableCounties: Country[] = [];
 
   dropdownCountries: DropdownCategory[] = [
@@ -78,7 +77,9 @@ export class SortComponent implements OnInit, OnDestroy {
 
   private subscription!: Subscription;
 
-  constructor(private apiService: ApiService) {}
+  channels$ = this.store.select(AppSelects.selectChannels);
+
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.getAllChannels();
@@ -93,10 +94,7 @@ export class SortComponent implements OnInit, OnDestroy {
   }
 
   private getAllChannels(): void {
-    this.subscription = this.apiService.getChannels().subscribe((channels) => {
-      this.channels = channels;
-      this.uploadCountries(channels);
-    });
+    this.subscription = this.channels$.subscribe((channels) => this.uploadCountries(channels));
   }
 
   private uploadCountries(channels: Channel[]): void {

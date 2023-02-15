@@ -1,7 +1,9 @@
 <section class="home">
-  <app-home-channel-category
-    *ngFor="let item of categories"
-    [category]="item"
-    [channels]="channels | sortByCategory : item"
-  ></app-home-channel-category>
+  <ng-container *ngIf="channels$ | async as channels">
+    <app-home-channel-category
+      *ngFor="let item of categories"
+      [category]="item"
+      [channels]="channels | sortByCategory : item"
+    ></app-home-channel-category>
+  </ng-container>
 </section>

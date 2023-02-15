@@ -2,5 +2,7 @@
   <div class="category__header">
     <h3 class="category__title">{{ category | titlecase }}</h3>
   </div>
-  <app-channel-list [channels]="channels | sortByCategory : category"></app-channel-list>
+  <ng-container *ngIf="channels$ | async as channels">
+    <app-channel-list [channels]="channels | sortByCategory : category"></app-channel-list>
+  </ng-container>
 </section>

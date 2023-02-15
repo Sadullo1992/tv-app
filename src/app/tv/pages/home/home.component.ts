@@ -1,33 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Channel } from 'src/app/core/models/channel.model';
-import { ApiService } from 'src/app/core/services/api.service';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as AppSelects from '../../../redux/selectors/app.selectors';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent {
   categories = ['news', 'sports', 'music', 'kids', 'movies', 'series'];
 
-  channels: Channel[] = [];
+  channels$ = this.store.select(AppSelects.selectChannels);
 
-  private subscription!: Subscription;
-
-  constructor(private api: ApiService) {}
-
-  ngOnInit(): void {
-    this.getAllChannels();
-  }
-
-  private getAllChannels(): void {
-    this.subscription = this.api.getChannels().subscribe((channels) => {
-      this.channels = channels;
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+  constructor(private store: Store) {}
 }

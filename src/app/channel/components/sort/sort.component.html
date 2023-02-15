@@ -12,7 +12,9 @@
     ></app-dropdown>
     <app-dropdown [isSearchFeature]="false" [dropdownCategories]="dropdownSorts"></app-dropdown>
   </div>
-  <app-sort-result
-    [channels]="channels | sortByCountry : queryByCountry | sortByCategory : queryByCategory"
-  ></app-sort-result>
+  <ng-container *ngIf="channels$ | async as channels">
+    <app-sort-result
+      [channels]="channels | sortByCountry : queryByCountry | sortByCategory : queryByCategory"
+    ></app-sort-result>
+  </ng-container>
 </section>

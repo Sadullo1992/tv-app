@@ -1,4 +1,4 @@
-<section class="channel">
+<section class="channel" *ngIf="channel$ | async as channel">
   <div class="channel__navigation">
     <a [routerLink]="['/']">Home</a>
     <img src="../../../assets/icons/arrow-right-grey.svg" alt="arrow icon" />

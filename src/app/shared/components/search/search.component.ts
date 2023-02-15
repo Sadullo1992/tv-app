@@ -1,28 +1,21 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { Channel } from 'src/app/core/models/channel.model';
-import { ApiService } from 'src/app/core/services/api.service';
+import { Store } from '@ngrx/store';
+import * as AppSelects from '../../../redux/selectors/app.selectors';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit, OnDestroy {
+export class SearchComponent {
   isSearch = false;
 
   query = '';
 
-  subscription!: Subscription;
+  channels$ = this.store.select(AppSelects.selectChannels);
 
-  channels: Channel[] = [];
-
-  constructor(private apiService: ApiService, private router: Router) {}
-
-  ngOnInit(): void {
-    this.getAllChannels();
-  }
+  constructor(private router: Router, private store: Store) {}
 
   onSearch(value: string) {
     this.query = value;
@@ -32,15 +25,5 @@ export class SearchComponent implements OnInit, OnDestroy {
   goToChannelPage(channelId: string) {
     this.router.navigate(['channel', channelId]);
     this.isSearch = false;
-  }
-
-  private getAllChannels(): void {
-    this.subscription = this.apiService.getChannels().subscribe((channels) => {
-      this.channels = channels;
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }
