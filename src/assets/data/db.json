@@ -248,18 +248,6 @@
       "url": "https://streamer1.connectto.com/HIGHVISION_WEB_1205/tracks-v1a1/mono.m3u8"
     },
     {
-      "id": "MuzSoyuz.ru",
-      "url": "http://hls-tvsoyuz.cdnvideo.ru/tvsoyuz2/muzsoyuz.6fw0-58xp-acts-esy0/playlist.m3u8"
-    },
-    {
-      "id": "RadioShanson.ru",
-      "url": "http://chanson-video.hostingradio.ru:8080/hls/chansonabr/live.m3u8"
-    },
-    {
-      "id": "StranaFM.ru",
-      "url": "http://live.stranafm.cdnvideo.ru/stranafm/stranafm_hd.sdp/playlist.m3u8"
-    },
-    {
       "id": "RotanaMusic.sa",
       "url": "https://rotanastudios-rotanamusic-1-eu.xiaomi.wurl.tv/playlist.m3u8"
     },
